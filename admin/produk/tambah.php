@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($stmt->execute()) {
                 flashMessage('success', "Produk '$nama_produk' berhasil ditambahkan.");
-                redirect('/admin/produk/index.php');
+                redirect('/EcomersPakHikmat/admin/produk/index.php');
             } else {
                 $error = 'Gagal menyimpan produk.';
             }

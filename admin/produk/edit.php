@@ -6,7 +6,7 @@ requireAdmin();
 $adminPage = 'produk';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if ($id < 1) redirect('/admin/produk/index.php');
+if ($id < 1) redirect('/EcomersPakHikmat/admin/produk/index.php');
 
 // Fetch product
 $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
@@ -15,7 +15,7 @@ $stmt->execute();
 $produk = $stmt->get_result()->fetch_assoc();
 if (!$produk) {
     flashMessage('danger', 'Produk tidak ditemukan.');
-    redirect('/admin/produk/index.php');
+    redirect('/EcomersPakHikmat/admin/produk/index.php');
 }
 
 $error = '';
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($updStmt->execute()) {
                 flashMessage('success', "Produk '$nama_produk' berhasil diperbarui.");
-                redirect('/admin/produk/index.php');
+                redirect('/EcomersPakHikmat/admin/produk/index.php');
             } else {
                 $error = 'Gagal memperbarui produk.';
             }

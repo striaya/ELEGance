@@ -24,7 +24,7 @@ if (isset($_GET['hapus'])) {
     $delStmt->execute();
 
     flashMessage('success', 'Produk berhasil dihapus.');
-    redirect('/admin/produk/index.php');
+    redirect('/EcomersPakHikmat/admin/produk/index.php');
 }
 
 // Search
@@ -140,7 +140,7 @@ $flash = getFlash();
                   <td style="color:var(--text-light)"><?= $offset + $i + 1 ?></td>
                   <td>
                     <?php if ($p['gambar'] && file_exists('../../assets/images/' . $p['gambar'])): ?>
-                      <img src="../../assets/images/<?= htmlspecialchars($p['gambar']) ?>"
+                      <img src="/EcomersPakHikmat/assets/images/<?= htmlspecialchars($p['gambar']) ?>"
                            style="width:46px;height:46px;object-fit:cover;border:1px solid var(--border)">
                     <?php else: ?>
                       <div style="width:46px;height:46px;background:var(--cream);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-light)">

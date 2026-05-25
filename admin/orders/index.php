@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
         $upd->execute();
         flashMessage('success','Status pesanan diperbarui.');
     }
-    redirect('/admin/orders/index.php');
+    redirect('/EcomersPakHikmat/admin/orders/index.php');
 }
 
 $perPage = 10;

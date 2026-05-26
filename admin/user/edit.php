@@ -6,13 +6,13 @@ requireAdmin();
 $adminPage = 'user';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if ($id < 1) redirect('/admin/user/index.php');
+if ($id < 1) redirect('/EcomersPakHikmat/admin/user/index.php');
 
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->bind_param('i', $id);
 $stmt->execute();
 $user = $stmt->get_result()->fetch_assoc();
-if (!$user) { flashMessage('danger','Pengguna tidak ditemukan.'); redirect('/admin/user/index.php'); }
+if (!$user) { flashMessage('danger','Pengguna tidak ditemukan.'); redirect('/EcomersPakHikmat/admin/user/index.php'); }
 
 $error = '';
 
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!$error) {
                 if ($ok) {
                     flashMessage('success', "Pengguna '$nama' berhasil diperbarui.");
-                    redirect('/admin/user/index.php');
+                    redirect('/EcomersPakHikmat/admin/user/index.php');
                 } else {
                     $error = 'Gagal memperbarui pengguna.';
                 }

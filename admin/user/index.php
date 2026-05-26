@@ -16,7 +16,7 @@ if (isset($_GET['hapus'])) {
         $del->execute();
         flashMessage('success', 'Pengguna berhasil dihapus.');
     }
-    redirect('/admin/user/index.php');
+    redirect('/EcomersPakHikmat/admin/user/index.php');
 }
 
 $search  = isset($_GET['q']) ? sanitize($_GET['q']) : '';

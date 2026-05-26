@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ins->bind_param('ssss', $nama, $email, $hashed, $role);
             if ($ins->execute()) {
                 flashMessage('success', "Pengguna '$nama' berhasil ditambahkan.");
-                redirect('/admin/user/index.php');
+                redirect('/EcomersPakHikmat/admin/user/index.php');
             } else {
                 $error = 'Gagal menyimpan pengguna.';
             }

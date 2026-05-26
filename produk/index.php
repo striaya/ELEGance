@@ -21,16 +21,16 @@ $params = [];
 $types  = '';
 
 if ($search !== '') {
-    $where   .= ' AND (nama_produk LIKE ? OR deskripsi LIKE ? OR kategori LIKE ?)';
-    $like     = '%' . $search . '%';
-    $params   = [$like, $like, $like];
-    $types    = 'sss';
+  $where   .= ' AND (nama_produk LIKE ? OR deskripsi LIKE ? OR kategori LIKE ?)';
+  $like     = '%' . $search . '%';
+  $params   = [$like, $like, $like];
+  $types    = 'sss';
 }
 
 if ($kategori !== '') {
-    $where   .= ' AND kategori = ?';
-    $params[] = $kategori;
-    $types   .= 's';
+  $where   .= ' AND kategori = ?';
+  $params[] = $kategori;
+  $types   .= 's';
 }
 
 // Count total
@@ -74,12 +74,12 @@ include '../assets/partials/header.php';
       <!-- Category filter -->
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
         <a href="index.php"
-           class="btn btn--sm <?= $kategori === '' ? 'btn--primary' : 'btn--ghost' ?>">
+          class="btn btn--sm <?= $kategori === '' ? 'btn--primary' : 'btn--ghost' ?>">
           Semua
         </a>
         <?php foreach ($kategoriList as $kat): ?>
           <a href="index.php?kategori=<?= urlencode($kat['kategori']) ?><?= $search ? '&q=' . urlencode($search) : '' ?>"
-             class="btn btn--sm <?= $kategori === $kat['kategori'] ? 'btn--primary' : 'btn--ghost' ?>">
+            class="btn btn--sm <?= $kategori === $kat['kategori'] ? 'btn--primary' : 'btn--ghost' ?>">
             <?= htmlspecialchars($kat['kategori']) ?>
           </a>
         <?php endforeach; ?>
@@ -91,10 +91,13 @@ include '../assets/partials/header.php';
           <input type="hidden" name="kategori" value="<?= htmlspecialchars($kategori) ?>">
         <?php endif; ?>
         <input type="text" name="q" id="searchInput"
-               placeholder="Cari produk..."
-               value="<?= htmlspecialchars($search) ?>">
+          placeholder="Cari produk..."
+          value="<?= htmlspecialchars($search) ?>">
         <button type="submit" aria-label="Cari">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
         </button>
       </form>
     </div>
@@ -109,7 +112,11 @@ include '../assets/partials/header.php';
     <!-- Products grid -->
     <?php if (empty($products)): ?>
       <div class="empty-state">
-        <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <svg class="empty-state__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 01-8 0" />
+        </svg>
         <div class="empty-state__title">Produk Tidak Ditemukan</div>
         <p class="empty-state__text">Coba kata kunci lain atau hapus filter yang aktif.</p>
         <a href="index.php" class="btn btn--outline">Lihat Semua Produk</a>
@@ -123,7 +130,11 @@ include '../assets/partials/header.php';
                 <img src="../assets/images/<?= htmlspecialchars($p['gambar']) ?>" alt="<?= htmlspecialchars($p['nama_produk']) ?>">
               <?php else: ?>
                 <div class="product-card__image-placeholder">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
                   <span>Foto Produk</span>
                 </div>
               <?php endif; ?>
@@ -152,7 +163,9 @@ include '../assets/partials/header.php';
         <div class="pagination">
           <?php if ($page > 1): ?>
             <a href="?<?= http_build_query(array_merge($_GET, ['halaman' => $page - 1])) ?>" aria-label="Sebelumnya">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
             </a>
           <?php endif; ?>
 
@@ -166,7 +179,9 @@ include '../assets/partials/header.php';
 
           <?php if ($page < $totalPages): ?>
             <a href="?<?= http_build_query(array_merge($_GET, ['halaman' => $page + 1])) ?>" aria-label="Berikutnya">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </a>
           <?php endif; ?>
         </div>

@@ -121,13 +121,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             Kembali ke Beranda
           </a>
         </div>
-
-        <!-- Demo credentials hint -->
-        <div style="margin-top:32px;padding:16px;background:var(--off-white);border:1px solid var(--border);font-size:0.78rem;color:var(--text-light)">
-          <div style="font-weight:500;color:var(--text-mid);margin-bottom:8px;letter-spacing:0.06em;text-transform:uppercase;font-size:0.68rem">Demo Akses</div>
-          <div>Admin: <code style="color:var(--accent)">admin@elegance.com</code> / <code style="color:var(--accent)">password</code></div>
-          <div style="margin-top:4px">User: <code style="color:var(--accent)">budi@example.com</code> / <code style="color:var(--accent)">password</code></div>
-        </div>
       </div>
     </div>
   </div>
